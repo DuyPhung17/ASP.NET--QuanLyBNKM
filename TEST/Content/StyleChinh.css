@@ -1,0 +1,221 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma;
+}
+
+.logo img {
+    position: absolute;
+    height: 60px;
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.menubar {
+    background: #092B44;
+    text-align: right;
+    padding-right: 25px;
+}
+
+    .menubar ul {
+        display: inline-flex;
+        list-style: none;
+        color: #ffffff;
+    }
+
+        .menubar ul li {
+            width: 80px;
+            margin: 15px;
+            padding: 15px;
+            text-align: center;
+        }
+
+            .menubar ul li a {
+                text-decoration: none;
+                color: #ffffff;
+                display: block;
+            }
+
+            .menubar ul li:hover {
+                background: #14B3C6;
+                border-radius: 4px;
+            }
+
+                .menubar ul li:hover a {
+                    color: #ffffff;
+                }
+
+.submenu {
+    display: none;
+}
+
+.menubar ul li:hover .submenu {
+    display: block;
+    position: absolute;
+    background: #092B44;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+    .menubar ul li:hover .submenu ul {
+        display: block;
+        margin: 10px;
+    }
+
+        .menubar ul li:hover .submenu ul li {
+            width: 120px;
+            padding: 5px;
+            text-align: left;
+        }
+
+.login {
+    background: #14B3C6;
+    border-radius: 4px;
+}
+
+.content {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    z-index: -1;
+}
+
+.heading{
+    display:flex;
+    padding-top:10px;
+}
+    .heading h2 {
+        color: #092B44;
+    }
+        .heading p a {
+            text-decoration: none;
+            position: absolute;
+            right: 10px;
+            border: 1px;
+            color: #fff;
+            background: #092B44;
+            border-radius: 5px;
+            height: 30px;
+            width: 110px;
+            display: block;
+            padding-top:5px;
+            text-align:center;
+        }
+    .heading p a:hover{
+        background-color:#14B3C6;
+    }
+.table {
+    border-collapse: collapse;
+    width:100%;
+    margin: 15px 0;
+    font-size: 0.9em;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+    .table thead tr {
+        background-color: #092B44;
+        color: #14B3C6;
+        text-align: left;
+        font-weight: bold;
+
+    }
+    .table thead a {
+        color: #14B3C6;
+        text-decoration:none;
+
+    }
+.table th, .table td {
+    padding: 12px 15px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+    .table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .table tbody tr:last-of-type {
+        border-bottom: 3px solid #092B44;
+    }
+.tfoot {
+    text-align: center;
+    font-weight:bold;
+    color:#092B44;
+}
+    .tfoot a {
+        background-color: #ffffff;
+        color: #14B3C6;
+        padding: 1px 10px 2px 10px;
+    }
+
+
+
+
+.wrapper {
+    max-width: 450px;
+    width: 100%;
+    background: #fff;
+    margin: 20px auto;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.125);
+    padding: 20px;
+    border:2px;
+    border-style:solid;
+    border-radius:5px;
+    border-color:#092B44 ;
+}
+
+    .wrapper .form {
+        width: 100%;
+    }
+        .wrapper .form .form-group {
+            margin-bottom: 10px;
+            margin-top:15px;
+            display: flex;
+            align-items: center;
+        }
+            .wrapper .form .form-group label {
+                width: 200px;
+                color: #092B44;
+                margin-right: 10px;
+                font-size: 14px;
+            }
+            .wrapper .form .form-control{
+                width: 100%;
+                outline: none;
+                border: 1px solid #d5dbd9;
+                font-size: 15px;
+                padding: 8px 8px;
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+                .wrapper .form .form-group .form-control:focus,
+                .wrapper .form .form-group .textarea:focus,
+                .wrapper .form .form-group .custom_select select:focus {
+                    border: 1px solid #14B3C6;
+                }
+
+        .wrapper .form .form-group .btn {
+            width: 448px;
+            height:40px;
+            margin-top:20px;
+            padding: 8px 10px;
+            font-size: 15px;
+            border: 0px;
+            background: #092B44;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            outline: none;
+        }
+            .wrapper .form .form-group .btn:hover {
+                background: #14B3C6;
+            }
+
+
