@@ -1,0 +1,55 @@
+﻿@model TEST.Models.THUOC
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="wrapper">
+        <h2 style="text-align:center">XÓA THÔNG TIN</h2>
+        <div class="form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MATHUOC)
+
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.TENTHUOC)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.TENTHUOC)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.XUATXU)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.XUATXU)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.NSX)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.NSX)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.HSD)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.HSD)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.DONVITINH)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.DONVITINH)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.DONGIATHUOC)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.DONGIATHUOC)</p>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <h4>Chắc chắn xóa thông tin này ?</h4>
+                    <input type="submit" value="Xóa" class="btn" />
+                </div>
+            </div>
+
+            <div style="text-align:center">
+                @Html.ActionLink("Trở Lại", "Index")
+            </div>
+        </div>
+    </div>
+
+}

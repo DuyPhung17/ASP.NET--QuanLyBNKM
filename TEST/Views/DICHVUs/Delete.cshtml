@@ -1,4 +1,4 @@
-﻿@model TEST.Models.HSBA
+﻿@model TEST.Models.DICHVU
 
 @{
     ViewBag.Title = "Delete";
@@ -12,21 +12,18 @@
         <h2 style="text-align:center">XÓA THÔNG TIN</h2>
         <div class="form">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @Html.HiddenFor(model => model.MAHSBA)
+            @Html.HiddenFor(model => model.MADV)
 
             <div class="form-group">
-                <label>@Html.DisplayNameFor(model => model.BENHNHAN.TENBN)</label>
-                <p class="form-control">@Html.DisplayFor(model => model.BENHNHAN.TENBN)</p>
+                <label>@Html.DisplayNameFor(model => model.TENDV)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.TENDV)</p>
             </div>
+
             <div class="form-group">
-                <label>@Html.DisplayNameFor(model => model.NGAYNHAPVIEN)</label>
-                <p class="form-control">@Html.DisplayFor(model => model.NGAYNHAPVIEN)</p>
+                <label>@Html.DisplayNameFor(model => model.DONGIADV)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.DONGIADV)</p>
             </div>
-            <div class="form-group">
-                <label>@Html.DisplayNameFor(model => model.BENH.TENBENH)</label>
-                <p class="form-control">@Html.DisplayFor(model => model.BENH.TENBENH)</p>
-            </div>
-     
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <h4>Chắc chắn xóa thông tin này ?</h4>

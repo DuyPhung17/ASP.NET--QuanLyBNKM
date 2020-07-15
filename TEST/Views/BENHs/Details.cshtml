@@ -1,0 +1,20 @@
+﻿@model TEST.Models.BENH
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+    <div class="wrapper">
+        <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+        <div class="form">
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.TENBENH)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.TENBENH)</p>
+            </div>
+
+            <div style="text-align:center">
+                @Html.ActionLink("Trở lại", "Index")
+            </div>
+        </div>
+    </div>

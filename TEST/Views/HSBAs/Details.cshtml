@@ -4,40 +4,24 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>HSBA</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYNHAPVIEN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAYNHAPVIEN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BENH.TENBENH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BENH.TENBENH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BENHNHAN.TENBN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BENHNHAN.TENBN)
-        </dd>
-
-    </dl>
+<div class="wrapper">
+    <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+    <div class="form">
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.BENHNHAN.TENBN)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.BENHNHAN.TENBN)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.NGAYNHAPVIEN)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.NGAYNHAPVIEN)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.BENH.TENBENH)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.BENH.TENBENH)</p>
+        </div>
+        
+        <div style="text-align:center">
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MAHSBA }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

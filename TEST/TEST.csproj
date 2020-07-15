@@ -136,10 +136,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BACSIsController.cs" />
     <Compile Include="Controllers\BENHNHANsController.cs" />
+    <Compile Include="Controllers\BENHsController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
+    <Compile Include="Controllers\DICHVUsController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HSBAsController.cs" />
+    <Compile Include="Controllers\THUOCsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,6 +282,21 @@
     <Content Include="Views\HSBAs\Details.cshtml" />
     <Content Include="Views\HSBAs\Edit.cshtml" />
     <Content Include="Views\HSBAs\Index.cshtml" />
+    <Content Include="Views\BENHs\Create.cshtml" />
+    <Content Include="Views\BENHs\Delete.cshtml" />
+    <Content Include="Views\BENHs\Details.cshtml" />
+    <Content Include="Views\BENHs\Edit.cshtml" />
+    <Content Include="Views\BENHs\Index.cshtml" />
+    <Content Include="Views\THUOCs\Create.cshtml" />
+    <Content Include="Views\THUOCs\Delete.cshtml" />
+    <Content Include="Views\THUOCs\Details.cshtml" />
+    <Content Include="Views\THUOCs\Edit.cshtml" />
+    <Content Include="Views\THUOCs\Index.cshtml" />
+    <Content Include="Views\DICHVUs\Create.cshtml" />
+    <Content Include="Views\DICHVUs\Delete.cshtml" />
+    <Content Include="Views\DICHVUs\Details.cshtml" />
+    <Content Include="Views\DICHVUs\Edit.cshtml" />
+    <Content Include="Views\DICHVUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,39 @@
+﻿@model TEST.Models.THUOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="wrapper">
+    <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+    <div class="form">
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.TENTHUOC)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.TENTHUOC)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.XUATXU)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.XUATXU)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.NSX)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.NSX)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.HSD)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.HSD)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.DONVITINH)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.DONVITINH)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.DONGIATHUOC)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.DONGIATHUOC)</p>
+        </div>
+        <div style="text-align:center">
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    </div>
+</div>

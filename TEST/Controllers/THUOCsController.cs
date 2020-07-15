@@ -10,122 +10,113 @@ using TEST.Models;
 
 namespace TEST.Controllers
 {
-    public class HSBAsController : Controller
+    public class THUOCsController : Controller
     {
         private QLBNKMEntities db = new QLBNKMEntities();
 
-        // GET: HSBAs
+        // GET: THUOCs
         public ActionResult Index()
         {
-            var hSBAs = db.HSBAs.Include(h => h.BENH).Include(h => h.BENHNHAN);
-            return View(hSBAs.ToList());
+            return View(db.THUOCs.ToList());
         }
         [HttpPost]
-        public ActionResult Index(String tenBN)
+        public ActionResult Index(String tenThuoc)
         {
-            var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(tenBN));
-            return View(hSBAs.ToList());
+            var Thuocs = db.THUOCs.Where(abc => abc.TENTHUOC.Contains(tenThuoc));
+            return View(Thuocs.ToList());
         }
 
-        // GET: HSBAs/Details/5
+        // GET: THUOCs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            THUOC tHUOC = db.THUOCs.Find(id);
+            if (tHUOC == null)
             {
                 return HttpNotFound();
             }
-            return View(hSBA);
+            return View(tHUOC);
         }
 
-        // GET: HSBAs/Create
+        // GET: THUOCs/Create
         public ActionResult Create()
         {
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH");
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN");
             return View();
         }
 
-        // POST: HSBAs/Create
+        // POST: THUOCs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHSBA,MABN,MABENH,NGAYNHAPVIEN")] HSBA hSBA)
+        public ActionResult Create([Bind(Include = "MATHUOC,TENTHUOC,XUATXU,NSX,HSD,DONVITINH,DONGIATHUOC")] THUOC tHUOC)
         {
             if (ModelState.IsValid)
             {
-                db.HSBAs.Add(hSBA);
+                db.THUOCs.Add(tHUOC);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            return View(tHUOC);
         }
 
-        // GET: HSBAs/Edit/5
+        // GET: THUOCs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            THUOC tHUOC = db.THUOCs.Find(id);
+            if (tHUOC == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            return View(tHUOC);
         }
 
-        // POST: HSBAs/Edit/5
+        // POST: THUOCs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHSBA,MABN,MABENH,NGAYNHAPVIEN")] HSBA hSBA)
+        public ActionResult Edit([Bind(Include = "MATHUOC,TENTHUOC,XUATXU,NSX,HSD,DONVITINH,DONGIATHUOC")] THUOC tHUOC)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hSBA).State = EntityState.Modified;
+                db.Entry(tHUOC).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            return View(tHUOC);
         }
 
-        // GET: HSBAs/Delete/5
+        // GET: THUOCs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            THUOC tHUOC = db.THUOCs.Find(id);
+            if (tHUOC == null)
             {
                 return HttpNotFound();
             }
-            return View(hSBA);
+            return View(tHUOC);
         }
 
-        // POST: HSBAs/Delete/5
+        // POST: THUOCs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HSBA hSBA = db.HSBAs.Find(id);
-            db.HSBAs.Remove(hSBA);
+            THUOC tHUOC = db.THUOCs.Find(id);
+            db.THUOCs.Remove(tHUOC);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
