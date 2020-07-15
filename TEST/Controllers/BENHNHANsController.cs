@@ -10,114 +10,107 @@ using TEST.Models;
 
 namespace TEST.Controllers
 {
-    public class BACSIsController : Controller
+    public class BENHNHANsController : Controller
     {
         private QLBNKMEntities db = new QLBNKMEntities();
 
-        // GET: BACSIs
+        // GET: BENHNHANs
         public ActionResult Index()
         {
-            return View(db.BACSIs.ToList());
-        }
-        [HttpPost]
-        public ActionResult Index(String tenBS)
-        {
-            var bacSis = db.BACSIs.Where(abc => abc.TENBS.Contains(tenBS));
-            return View(bacSis.ToList());
+            return View(db.BENHNHANs.ToList());
         }
 
-
-        // GET: BACSIs/Details/
+        // GET: BENHNHANs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BACSI bACSI = db.BACSIs.Find(id);
-            if (bACSI == null)
+            BENHNHAN bENHNHAN = db.BENHNHANs.Find(id);
+            if (bENHNHAN == null)
             {
                 return HttpNotFound();
             }
-            return View(bACSI);
+            return View(bENHNHAN);
         }
 
-        // GET: BACSIs/Create
+        // GET: BENHNHANs/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: BACSIs/Create
+        // POST: BENHNHANs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MABS,TENBS,NGAYSINHBS,SDTBS,DIACHIBS,CHUYENMON,TRINHDO")] BACSI bACSI)
+        public ActionResult Create([Bind(Include = "MABN,TENBN,NGAYSINHBN,DIACHIBN,GIOITINH,CMND,BHYT")] BENHNHAN bENHNHAN)
         {
             if (ModelState.IsValid)
             {
-                db.BACSIs.Add(bACSI);
+                db.BENHNHANs.Add(bENHNHAN);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(bACSI);
+            return View(bENHNHAN);
         }
 
-        // GET: BACSIs/Edit/5
+        // GET: BENHNHANs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BACSI bACSI = db.BACSIs.Find(id);
-            if (bACSI == null)
+            BENHNHAN bENHNHAN = db.BENHNHANs.Find(id);
+            if (bENHNHAN == null)
             {
                 return HttpNotFound();
             }
-            return View(bACSI);
+            return View(bENHNHAN);
         }
 
-        // POST: BACSIs/Edit/5
+        // POST: BENHNHANs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MABS,TENBS,NGAYSINHBS,SDTBS,DIACHIBS,CHUYENMON,TRINHDO")] BACSI bACSI)
+        public ActionResult Edit([Bind(Include = "MABN,TENBN,NGAYSINHBN,DIACHIBN,GIOITINH,CMND,BHYT")] BENHNHAN bENHNHAN)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bACSI).State = EntityState.Modified;
+                db.Entry(bENHNHAN).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(bACSI);
+            return View(bENHNHAN);
         }
 
-        // GET: BACSIs/Delete/5
+        // GET: BENHNHANs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BACSI bACSI = db.BACSIs.Find(id);
-            if (bACSI == null)
+            BENHNHAN bENHNHAN = db.BENHNHANs.Find(id);
+            if (bENHNHAN == null)
             {
                 return HttpNotFound();
             }
-            return View(bACSI);
+            return View(bENHNHAN);
         }
 
-        // POST: BACSIs/Delete/5
+        // POST: BENHNHANs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BACSI bACSI = db.BACSIs.Find(id);
-            db.BACSIs.Remove(bACSI);
+            BENHNHAN bENHNHAN = db.BENHNHANs.Find(id);
+            db.BENHNHANs.Remove(bENHNHAN);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

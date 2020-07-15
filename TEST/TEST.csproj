@@ -135,6 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BACSIsController.cs" />
+    <Compile Include="Controllers\BENHNHANsController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -267,6 +268,11 @@
     <Content Include="Views\BACSIs\Index.cshtml" />
     <Content Include="Views\GioiThieu\GioiThieu.cshtml" />
     <Content Include="Views\DangNhap\DangNhap.cshtml" />
+    <Content Include="Views\BENHNHANs\Create.cshtml" />
+    <Content Include="Views\BENHNHANs\Delete.cshtml" />
+    <Content Include="Views\BENHNHANs\Details.cshtml" />
+    <Content Include="Views\BENHNHANs\Edit.cshtml" />
+    <Content Include="Views\BENHNHANs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
