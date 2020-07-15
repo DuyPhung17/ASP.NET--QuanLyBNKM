@@ -1,0 +1,43 @@
+﻿@model TEST.Models.HSBA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HSBA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYNHAPVIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYNHAPVIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BENH.TENBENH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BENH.TENBENH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BENHNHAN.TENBN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BENHNHAN.TENBN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAHSBA }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

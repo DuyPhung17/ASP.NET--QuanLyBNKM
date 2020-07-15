@@ -1,14 +1,14 @@
-﻿@model IEnumerable<TEST.Models.BENHNHAN>
+﻿@model IEnumerable<TEST.Models.HSBA>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, defaultSort: "TENBN", rowsPerPage: 8);
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 8);
     @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
 }
 
 <div class="heading">
-    <h2>THÔNG TIN BỆNH NHÂN</h2>
+    <h2>THÔNG TIN HỒ SƠ BỆNH ÁN</h2>
     <form class="form" method="post">
         <input type="text" name="tenBN" placeholder="Nhập tên bệnh nhân" class="form-control" />
         <input type="submit" value="Tìm Kiếm" class="btn" />
@@ -29,21 +29,19 @@
         columns:
             grid.Columns(
             grid.Column(columnName: "STT", header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
-            grid.Column("TENBN", "Tên Bệnh Nhân"),
-            grid.Column("NGAYSINHBN", "Ngày Sinh", format:@<text> @item.NGAYSINHBN.ToString("dd/MM/yyyy")</text>),
-            grid.Column("GIOITINH", "Giới Tính"),
-            grid.Column("DIACHIBN", "Địa Chỉ"),
-            grid.Column("CMND", "CMND"),
-            grid.Column("BHYT", "BHYT"),
+            grid.Column("BENHNHAN.TENBN", "Tên Bệnh Nhân"),
+            grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
+            grid.Column("BENH.TENBENH", "Căn Bệnh"),
+            
             grid.Column("Chức năng", format: @<text>
             <a href="@Url.Action("Edit",
-                        new { id = item.MABN})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
+                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
             &nbsp;
             <a href="@Url.Action("Details",
-                        new { id = item.MABN})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
+                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
             &nbsp;
             <a href="@Url.Action("Delete",
-                        new { id = item.MABN})" class="edit-btn">
+                        new { id = item.MAHSBA})" class="edit-btn">
                 <abbr title="Xóa dữ liệu">
                     <img src="/images/delete.png" height="17" />
                 </abbr>
@@ -53,3 +51,4 @@
 
 ))
 </div>
+

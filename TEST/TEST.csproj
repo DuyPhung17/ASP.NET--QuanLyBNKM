@@ -139,6 +139,7 @@
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HSBAsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -273,6 +274,11 @@
     <Content Include="Views\BENHNHANs\Details.cshtml" />
     <Content Include="Views\BENHNHANs\Edit.cshtml" />
     <Content Include="Views\BENHNHANs\Index.cshtml" />
+    <Content Include="Views\HSBAs\Create.cshtml" />
+    <Content Include="Views\HSBAs\Delete.cshtml" />
+    <Content Include="Views\HSBAs\Details.cshtml" />
+    <Content Include="Views\HSBAs\Edit.cshtml" />
+    <Content Include="Views\HSBAs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

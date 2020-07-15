@@ -5,63 +5,35 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
-
-<div>
-    <h4>BENHNHAN</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TENBN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TENBN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NGAYSINHBN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NGAYSINHBN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DIACHIBN)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DIACHIBN)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.GIOITINH)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.GIOITINH)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CMND)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CMND)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BHYT)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BHYT)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MABN }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <div class="wrapper">
+        <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+        <div class="form">
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.TENBN)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.TENBN)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.NGAYSINHBN)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.NGAYSINHBN)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.GIOITINH)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.GIOITINH)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.DIACHIBN)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.DIACHIBN)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.CMND)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.CMND)</p>
+            </div>
+            <div class="form-group">
+                <label>@Html.DisplayNameFor(model => model.BHYT)</label>
+                <p class="form-control">@Html.DisplayFor(model => model.BHYT)</p>
+            </div>
+            <div style="text-align:center">
+                @Html.ActionLink("Trở lại", "Index")
+            </div>
+        </div>
+    </div>
