@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "DangNhap";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Views/Shared/_LayoutDau.cshtml";
 }
 
 <!DOCTYPE html>
@@ -85,6 +85,7 @@
                     color: #092B44;
                 }
 
+
         .loginbox a {
             text-decoration: none;
             font-size: 12px;
@@ -102,12 +103,12 @@
     <div class="loginbox">
         <img src="~/Images/avatar.png" class="avatar" />
         <h1>ĐĂNG NHẬP</h1>
-        <form method="post">
+        <form method="post" action="DangNhap">
             <p>Tên tài khoản</p>
-            <input type="text" name="" placeholder="Nhập tên tài khoản">
+            <input type="text" name="TENDN" placeholder="Nhập tên tài khoản" required>
             <p>Mật khẩu</p>
-            <input type="password" name="" placeholder="Nhập mật khẩu">
-            <input type="submit" name="" value="Đăng Nhập">
+            <input type="password" name="MATKHAU" placeholder="Nhập mật khẩu" required>
+            <input type="submit" name="login" value="Đăng Nhập" >
             <a href="#">Quên mật khẩu ?</a><br>
             <a href="#">Liên hệ Trưởng khoa để cấp tài khoản</a>
         </form>

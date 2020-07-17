@@ -137,6 +137,7 @@
     <Compile Include="Controllers\BACSIsController.cs" />
     <Compile Include="Controllers\BENHNHANsController.cs" />
     <Compile Include="Controllers\BENHsController.cs" />
+    <Compile Include="Controllers\CT_HSBAController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\DICHVUsController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
@@ -297,6 +298,16 @@
     <Content Include="Views\DICHVUs\Details.cshtml" />
     <Content Include="Views\DICHVUs\Edit.cshtml" />
     <Content Include="Views\DICHVUs\Index.cshtml" />
+    <Content Include="Views\CT_HSBA\Create.cshtml" />
+    <Content Include="Views\CT_HSBA\Delete.cshtml" />
+    <Content Include="Views\CT_HSBA\Details.cshtml" />
+    <Content Include="Views\CT_HSBA\Edit.cshtml" />
+    <Content Include="Views\CT_HSBA\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutDau.cshtml" />
+    <Content Include="Views\DangNhap\GioiThieu.cshtml" />
+    <Content Include="Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Views\DangNhap\GioiThieuBS.cshtml" />
+    <Content Include="Views\HSBAs\TraCuu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

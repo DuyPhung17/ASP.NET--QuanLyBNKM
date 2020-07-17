@@ -10,128 +10,116 @@ using TEST.Models;
 
 namespace TEST.Controllers
 {
-    public class HSBAsController : Controller
+    public class CT_HSBAController : Controller
     {
         private QLBNKMEntities db = new QLBNKMEntities();
-        // GET: HSBAs
-        public ActionResult Index()
+
+        // GET: CT_HSBA
+        public ActionResult Index(int id)
         {
-            var hSBAs = db.HSBAs.Include(h => h.BENH).Include(h => h.BENHNHAN);
-            return View(hSBAs.ToList());
-        }
-        [HttpPost]
-        public ActionResult Index(String tenBN)
-        {
-            var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(tenBN));
-            return View(hSBAs.ToList());
-        }
-        [HttpGet]
-        public ActionResult TraCuu()
-        {
-            var hSBAs = db.HSBAs.Include(h => h.BENH).Include(h => h.BENHNHAN);
-            return View(hSBAs.ToList());
+            var cT_HSBA = db.CT_HSBA.Include(c => c.BACSI).Include(c => c.HSBA);
+            return View(cT_HSBA.ToList());
         }
 
-        // GET: HSBAs/Details/5
+        // GET: CT_HSBA/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            CT_HSBA cT_HSBA = db.CT_HSBA.Find(id);
+            if (cT_HSBA == null)
             {
                 return HttpNotFound();
             }
-            Session["MaHSBA"] = hSBA.MAHSBA;
-            return RedirectToAction("Index","CT_HSBA");
+            return View(cT_HSBA);
         }
 
-        // GET: HSBAs/Create
+        // GET: CT_HSBA/Create
         public ActionResult Create()
         {
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH");
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN");
+            ViewBag.MABS = new SelectList(db.BACSIs, "MABS", "TENBS");
+            ViewBag.MAHSBA = new SelectList(db.HSBAs, "MAHSBA", "MAHSBA");
             return View();
         }
 
-        // POST: HSBAs/Create
+        // POST: CT_HSBA/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MAHSBA,MABN,MABENH,NGAYNHAPVIEN")] HSBA hSBA)
+        public ActionResult Create([Bind(Include = "MAHSBA,MABS,NGAYKHAM,TINHTRANG")] CT_HSBA cT_HSBA)
         {
             if (ModelState.IsValid)
             {
-                db.HSBAs.Add(hSBA);
+                db.CT_HSBA.Add(cT_HSBA);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            ViewBag.MABS = new SelectList(db.BACSIs, "MABS", "TENBS", cT_HSBA.MABS);
+            ViewBag.MAHSBA = new SelectList(db.HSBAs, "MAHSBA", "MAHSBA", cT_HSBA.MAHSBA);
+            return View(cT_HSBA);
         }
 
-        // GET: HSBAs/Edit/5
+        // GET: CT_HSBA/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            CT_HSBA cT_HSBA = db.CT_HSBA.Find(id);
+            if (cT_HSBA == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            ViewBag.MABS = new SelectList(db.BACSIs, "MABS", "TENBS", cT_HSBA.MABS);
+            ViewBag.MAHSBA = new SelectList(db.HSBAs, "MAHSBA", "MAHSBA", cT_HSBA.MAHSBA);
+            return View(cT_HSBA);
         }
 
-        // POST: HSBAs/Edit/5
+        // POST: CT_HSBA/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MAHSBA,MABN,MABENH,NGAYNHAPVIEN")] HSBA hSBA)
+        public ActionResult Edit([Bind(Include = "MAHSBA,MABS,NGAYKHAM,TINHTRANG")] CT_HSBA cT_HSBA)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(hSBA).State = EntityState.Modified;
+                db.Entry(cT_HSBA).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MABENH = new SelectList(db.BENHs, "MABENH", "TENBENH", hSBA.MABENH);
-            ViewBag.MABN = new SelectList(db.BENHNHANs, "MABN", "TENBN", hSBA.MABN);
-            return View(hSBA);
+            ViewBag.MABS = new SelectList(db.BACSIs, "MABS", "TENBS", cT_HSBA.MABS);
+            ViewBag.MAHSBA = new SelectList(db.HSBAs, "MAHSBA", "MAHSBA", cT_HSBA.MAHSBA);
+            return View(cT_HSBA);
         }
 
-        // GET: HSBAs/Delete/5
+        // GET: CT_HSBA/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            HSBA hSBA = db.HSBAs.Find(id);
-            if (hSBA == null)
+            CT_HSBA cT_HSBA = db.CT_HSBA.Find(id);
+            if (cT_HSBA == null)
             {
                 return HttpNotFound();
             }
-            return View(hSBA);
+            return View(cT_HSBA);
         }
 
-        // POST: HSBAs/Delete/5
+        // POST: CT_HSBA/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            HSBA hSBA = db.HSBAs.Find(id);
-            db.HSBAs.Remove(hSBA);
+            CT_HSBA cT_HSBA = db.CT_HSBA.Find(id);
+            db.CT_HSBA.Remove(cT_HSBA);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

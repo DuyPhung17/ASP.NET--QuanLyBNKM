@@ -1,0 +1,43 @@
+﻿@model TEST.Models.CT_HSBA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CT_HSBA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TINHTRANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TINHTRANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BACSI.TENBS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BACSI.TENBS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HSBA.MAHSBA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HSBA.MAHSBA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

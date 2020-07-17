@@ -16,7 +16,7 @@ namespace TEST
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "GioiThieu", action = "GioiThieu", id = UrlParameter.Optional }
+                defaults: new { controller = "DangNhap", action = "DangNhap", id = UrlParameter.Optional }
             );
         }
     }

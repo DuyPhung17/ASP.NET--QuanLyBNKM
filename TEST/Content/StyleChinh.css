@@ -260,6 +260,7 @@ body {
             }
 
             .footer{
+                float:left;
                 background-color:#092B44;
                 height:30px;
                 width:100%;
@@ -269,4 +270,63 @@ body {
                 color:#ffffff;
                 padding-top:10px;
             }
+
+/*Tra Cuu*/
+.wrapperb {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    margin: 15px auto;
+}
+
+    .wrapperb .form {
+        width: 100%;
+    }
+
+        .wrapperb .form .form-group {
+            margin-bottom: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+            .wrapperb .form .form-group label {
+                width: 160px;
+                color: #092B44;
+                margin-right: 10px;
+                margin-left:35px;
+                font-size: 14px;
+            }
+
+        .wrapperb .form .form-control {
+            width: 100%;
+            outline: none;
+            border: 1px solid #d5dbd9;
+            font-size: 15px;
+            padding: 5px 5px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .wrapperb .form .form-group .form-control:focus,
+        .wrapperb .form .form-group .textarea:focus,
+        .wrapperb .form .form-group .custom_select select:focus {
+            border: 1px solid #14B3C6;
+        }
+
+        .wrapperb .form .form-group .btnb {
+            width: 175px;
+            height: 35px;
+            margin-top: 5px;
+            margin-left:205px;
+            padding: 8px 10px;
+            font-size: 15px;
+            border: 0px;
+            background: #092B44;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+            outline: none;
+        }
+
 

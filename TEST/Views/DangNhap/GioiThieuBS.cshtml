@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "GioiThieuBS";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #bgimg {
+            position: absolute;
+            top: 40px;
+            right: -100px;
+            width: 650px;
+            z-index: -1;
+        }
+
+        #gth {
+            position: absolute;
+            top: 60px;
+            left: -40px;
+            width: 550px;
+        }
+    </style>
+</head>
+<body>
+    <p>BÁC SĨ: @Session["tenDN"]</p>
+    <img src="~/Images/anhbg2.jpg" id="bgimg" />
+    <img src="~/Images/Picture1.png" id="gth" />
+
+
+
+
+</body>
+</html>
+
