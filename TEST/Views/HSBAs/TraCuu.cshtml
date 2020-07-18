@@ -17,39 +17,50 @@
                 <div class="form-group">
                     @Html.Label("Tên Bệnh Nhân", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Editor("TENBN", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="text" name="TENBN" placeholder="Nhập tên bệnh nhân" class="form-control" />
                     </div>
 
                     @Html.Label("Giới tính", htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <div class="checkbox">
-                            Nam @Html.RadioButton("True", "Nam", new { @checked = "checked" }) &nbsp;
-                            Nữ @Html.RadioButton("False", "Nữ")
-                        </div>
-                    </div>
+                <div class="col-md-10">
+                    @if (@ViewBag.GIOITINH == null)
+                    {
+                        <input type="radio" name="GIOITINH" value="1" /><text> Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" value="0" /><text> Nữ</text>
+                    }
+                    else if (@ViewBag.GIOITINH == "1")
+                    {
+                        <input type="radio" name="GIOITINH" checked value="1" /><text>Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" value="0" /><text>Nữ</text>
+                    }
+                    else
+                    {
+                        <input type="radio" name="GIOITINH" value="1" /><text>Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" checked value="0" /><text>Nữ</text>
+                    }
+                </div>
                 </div>
 
                 <div class="form-group">
                     @Html.Label("Địa chỉ", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Editor("DIACHI", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="text" name="DIACHIBN" placeholder="Nhập địa chỉ" class="form-control" />
                     </div>
 
                     @Html.Label("BHYT", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Editor("BHYT", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="text" name="BHYT" placeholder="Nhập BHYT" class="form-control" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     @Html.Label("Ngày Nhập Viện", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Editor("NGAYNHAPVIEN", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="text" name="NGAYNHAPVIEN" placeholder="Nhập ngày nhập viện" class="form-control" />
                     </div>
 
                     @Html.Label("Căn Bệnh", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.Editor("CANBENH", new { htmlAttributes = new { @class = "form-control" } })
+                        <input type="text" name="CANBENH" placeholder="Nhập căn bệnh" class="form-control" />
                     </div>
                 </div>
 

@@ -15,10 +15,13 @@ namespace TEST.Controllers
         private QLBNKMEntities db = new QLBNKMEntities();
 
         // GET: CT_HSBA
-        public ActionResult Index(int id)
+
+        public ActionResult Index(int? id)
         {
-            var cT_HSBA = db.CT_HSBA.Include(c => c.BACSI).Include(c => c.HSBA);
-            return View(cT_HSBA.ToList());
+            var cT_HSBAs = db.CT_HSBA.Where(abc => abc.MAHSBA == id);
+            int MABN = db.HSBAs.Find(id).MABN;
+            ViewBag.TENBN = db.BENHNHANs.Find(MABN).TENBN;
+            return View(cT_HSBAs.ToList());
         }
 
         // GET: CT_HSBA/Details/5

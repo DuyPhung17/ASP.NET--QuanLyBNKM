@@ -18,5 +18,8 @@ namespace TEST.Models
         public bool ADMIN { get; set; }
         public string TENDN { get; set; }
         public string MATKHAU { get; set; }
+        public int MABS { get; set; }
+    
+        public virtual BACSI BACSI { get; set; }
     }
 }

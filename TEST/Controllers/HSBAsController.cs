@@ -25,10 +25,22 @@ namespace TEST.Controllers
             var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(tenBN));
             return View(hSBAs.ToList());
         }
-        [HttpGet]
+
         public ActionResult TraCuu()
         {
             var hSBAs = db.HSBAs.Include(h => h.BENH).Include(h => h.BENHNHAN);
+            return View(hSBAs.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult TraCuu(String TENBN = "", String GIOITINH = "", String DIACHIBN = "", String BHYT = "", String NGAYNHAPVIEN = "", String CANBENH = "")
+        {
+            var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(TENBN)
+                                    && abc.BENHNHAN.GIOITINH.Contains(GIOITINH)
+                                    && abc.BENHNHAN.DIACHIBN.Contains(DIACHIBN)
+                                    && abc.BENHNHAN.BHYT.Contains(BHYT)
+                                    && abc.NGAYNHAPVIEN.ToString().Contains(NGAYNHAPVIEN)
+                                    && abc.BENH.TENBENH.Contains(CANBENH));
             return View(hSBAs.ToList());
         }
 

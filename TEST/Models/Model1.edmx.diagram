@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="QLBNKMModel.DICHVU" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBNKMModel.HSBA" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBNKMModel.TAIKHOAN" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBNKMModel.THANNHAN" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBNKMModel.THUOC" Width="1.5" PointX="5.25" PointY="16.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBNKMModel.TOATHUOC" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
         <AssociationConnector Association="QLBNKMModel.FK__CT_HSBA__MABS__25869641" ManuallyRouted="false" />
@@ -23,12 +22,13 @@
         <AssociationConnector Association="QLBNKMModel.FK__BANKEDICH__MAHSB__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__HSBA__MABENH__21B6055D" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__HSBA__MABN__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="QLBNKMModel.FK__THANNHAN__MABN__145C0A3F" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__CT_HSBA__MAHSBA__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__CT_TOATHU__MATHU__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__CT_TOATHU__MATOA__2B3F6F97" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.FK__TOATHUOC__MAHSBA__286302EC" ManuallyRouted="false" />
         <AssociationConnector Association="QLBNKMModel.CT_BANKEDICHVU" ManuallyRouted="false" />
+        <AssociationConnector Association="QLBNKMModel.FK__TAIKHOAN__MABS__36B12243" />
+        <EntityTypeShape EntityType="QLBNKMModel.sysdiagram" Width="1.5" PointX="8.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,35 @@
+﻿@model TEST.Models.TOATHUOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TOATHUOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYKE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYKE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HSBA.MAHSBA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HSBA.MAHSBA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MATOATHUOC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

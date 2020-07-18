@@ -1,0 +1,51 @@
+﻿@model TEST.Models.CT_TOATHUOC
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CT_TOATHUOC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SOLUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOLUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LIEUDUNG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIEUDUNG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THUOC.TENTHUOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUOC.TENTHUOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOATHUOC.MATOATHUOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOATHUOC.MATOATHUOC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
