@@ -61,8 +61,10 @@ CREATE TABLE HSBA
    ON UPDATE CASCADE
    ON DELETE CASCADE	NOT NULL,
    NGAYNHAPVIEN         date				NOT NULL,
+   DUYET				BIT					NOT NULL,
 )
 GO
+
 
 CREATE TABLE CT_HSBA
 (  MAHSBA               INT			FOREIGN KEY REFERENCES dbo.HSBA(MAHSBA) 
@@ -216,18 +218,18 @@ VALUES
 	(N'Bong Võng Mạc');
 GO
 	  
-INSERT dbo.HSBA( MABN, MABENH, NGAYNHAPVIEN )
+INSERT dbo.HSBA( MABN, MABENH, NGAYNHAPVIEN, DUYET )
 VALUES  
-	(1,	6,	'2019-01-20'),
-	(2,	7,	'2019-02-20'),
-	(3,	1,	'2019-03-20'),
-	(4,	4,	'2019-04-20'),
-	(5,	4,	'2019-05-20'),
-	(6,	6,	'2019-06-20'),
-	(7,	8,	'2019-07-20'),
-	(8,	3,	'2019-08-20'),
-	(9,	2,	'2019-09-20'),
-	(10,1,	'2019-10-20');
+	(1,	6,	'2019-01-20', 0),
+	(2,	7,	'2019-02-20', 0),
+	(3,	1,	'2019-03-20', 0),
+	(4,	4,	'2019-04-20', 0),
+	(5,	4,	'2019-05-20', 0),
+	(6,	6,	'2019-06-20', 0),
+	(7,	8,	'2019-07-20', 0),
+	(8,	3,	'2019-08-20', 0),
+	(9,	2,	'2019-09-20', 0),
+	(10,1,	'2019-10-20', 0);
 GO
 
 INSERT dbo.CT_HSBA(MAHSBA, MABS, NGAYKHAM, TINHTRANG)

@@ -27,6 +27,7 @@ namespace TEST.Models
         public int MABN { get; set; }
         public int MABENH { get; set; }
         public System.DateTime NGAYNHAPVIEN { get; set; }
+        public bool DUYET { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BANKECHIPHI> BANKECHIPHIs { get; set; }

@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<TEST.Models.HSBA>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "hienthihsba";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 8);
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 5);
     @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
 }
 
@@ -33,21 +33,22 @@
             grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
             grid.Column("BENH.TENBENH", "Căn Bệnh"),
             grid.Column("DUYET", "Trình Trạng"),
-            grid.Column("Toa Thuốc",format: (item) => Html.ActionLink("Chi Tiết", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
-            grid.Column("Dịch Vụ Dùng",format: (item) => Html.ActionLink("Chi Tiết", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
+            grid.Column("Toa Thuốc", format: (item) => Html.ActionLink("Chi Tiết", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
+            grid.Column("Dịch Vụ Dùng", format: (item) => Html.ActionLink("Chi Tiết", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
+            grid.Column("Duyệt", format: (item) => Html.ActionLink("Duyệt", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController")),
             grid.Column("Chức năng", format: @<text>
-            <a href="@Url.Action("Edit",
+                        <a href="@Url.Action("Edit",
                         new { id = item.MAHSBA})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
-            &nbsp;
-            <a href="@Url.Action("Index","CT_HSBA",
+                        &nbsp;
+                        <a href="@Url.Action("Index","CT_HSBA",
                         new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
-            &nbsp;
-            <a href="@Url.Action("Delete",
+                        &nbsp;
+                        <a href="@Url.Action("Delete",
                         new { id = item.MAHSBA})" class="edit-btn">
-                <abbr title="Xóa dữ liệu">
-                    <img src="/images/delete.png" height="17" />
-                </abbr>
-            </a>
+                            <abbr title="Xóa dữ liệu">
+                                <img src="/images/delete.png" height="17" />
+                            </abbr>
+                        </a>
 </text>)
 
 

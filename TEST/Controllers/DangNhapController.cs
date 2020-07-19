@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Security;
 using TEST.Models;
 
@@ -42,18 +43,18 @@ namespace TEST.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CheckUser(tk.TENDN, tk.MATKHAU)==2)
+                if (CheckUser(tk.TENDN, tk.MATKHAU) == 2)
                 {
                     FormsAuthentication.SetAuthCookie(tk.TENDN, true);
                     return RedirectToAction("GioiThieu");
                 }
-                else if(CheckUser(tk.TENDN, tk.MATKHAU)==1)
+                else if (CheckUser(tk.TENDN, tk.MATKHAU) == 1)
                 {
                     FormsAuthentication.SetAuthCookie(tk.TENDN, true);
-                    return RedirectToAction("GioiThieuBS");
-                }    
+                    return RedirectToAction("GioiThieuBS", new { id = tk.MABS});
+                }
                 else
-                    ModelState.AddModelError("", "Tên đăng nhập hoặc tài khoản không đúng.");
+                    return Content("Sai tài khoản!");
             }
             return View(tk);
         }
