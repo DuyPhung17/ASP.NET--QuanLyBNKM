@@ -33,13 +33,13 @@ namespace TEST.Controllers
         }
 
         [HttpPost]
-        public ActionResult TraCuu(String TENBN = "", String GIOITINH = "", String DIACHIBN = "", String BHYT = "", String NGAYNHAPVIEN = "", String CANBENH = "")
+        public ActionResult TraCuu(DateTime NGAYNHAPVIEN, String TENBN = "", String GIOITINH = "", String DIACHIBN = "", String BHYT = "", String CANBENH = "")
         {
             var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(TENBN)
                                     && abc.BENHNHAN.GIOITINH.Contains(GIOITINH)
                                     && abc.BENHNHAN.DIACHIBN.Contains(DIACHIBN)
                                     && abc.BENHNHAN.BHYT.Contains(BHYT)
-                                    && abc.NGAYNHAPVIEN.ToString().Contains(NGAYNHAPVIEN)
+                                    && abc.NGAYNHAPVIEN.CompareTo(NGAYNHAPVIEN)==0
                                     && abc.BENH.TENBENH.Contains(CANBENH));
             return View(hSBAs.ToList());
         }

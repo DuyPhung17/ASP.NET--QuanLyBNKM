@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "BACSIs",FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="wrapper">
@@ -64,6 +64,14 @@
                         <p>@Html.RadioButtonFor(model => model.TRINHDO, "Chuyên Khoa II", new { @checked = "checked" }) &nbsp;Chuyên Khoa II</p>
                         @Html.ValidationMessageFor(model => model.TRINHDO, "", new { @class = "text-danger" })
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ANHBS, "Ảnh Đại Diện", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" style="height:20px;" name="Avatar" accept="image/*" required />
+                    @Html.ValidationMessageFor(model => model.ANHBS, "", new { @class = "text-danger" })
                 </div>
             </div>
 

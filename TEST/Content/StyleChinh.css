@@ -280,6 +280,10 @@ body {
     margin: 15px auto;
 }
 
+    .wrapperb h2 {
+        color:#092B44;
+    }
+
     .wrapperb .form {
         width: 100%;
     }

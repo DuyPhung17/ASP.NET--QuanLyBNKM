@@ -24,18 +24,18 @@
                 <div class="col-md-10">
                     @if (@ViewBag.GIOITINH == null)
                     {
-                        <input type="radio" name="GIOITINH" value="1" /><text> Nam &nbsp;</text>
-                        <input type="radio" name="GIOITINH" value="0" /><text> Nữ</text>
+                        <input type="radio" name="GIOITINH" value="Nam" /><text> Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" value="Nữ" /><text> Nữ</text>
                     }
                     else if (@ViewBag.GIOITINH == "1")
                     {
-                        <input type="radio" name="GIOITINH" checked value="1" /><text>Nam &nbsp;</text>
-                        <input type="radio" name="GIOITINH" value="0" /><text>Nữ</text>
+                        <input type="radio" name="GIOITINH" checked value="Nam" /><text>Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" value="Nữ" /><text>Nữ</text>
                     }
                     else
                     {
-                        <input type="radio" name="GIOITINH" value="1" /><text>Nam &nbsp;</text>
-                        <input type="radio" name="GIOITINH" checked value="0" /><text>Nữ</text>
+                        <input type="radio" name="GIOITINH" value="Nam" /><text>Nam &nbsp;</text>
+                        <input type="radio" name="GIOITINH" checked value="Nữ" /><text>Nữ</text>
                     }
                 </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     @Html.Label("Ngày Nhập Viện", htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        <input type="text" name="NGAYNHAPVIEN" placeholder="Nhập ngày nhập viện" class="form-control" />
+                        <input type="date" name="NGAYNHAPVIEN" value="2019-06-20" class="form-control" style="width:190px;"/>
                     </div>
 
                     @Html.Label("Căn Bệnh", htmlAttributes: new { @class = "control-label col-md-2" })

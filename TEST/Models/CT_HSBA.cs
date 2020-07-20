@@ -19,6 +19,7 @@ namespace TEST.Models
         public int MAHSBA { get; set; }
         public int MABS { get; set; }
         [DisplayName ("Ngày Khám")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime NGAYKHAM { get; set; }
         [DisplayName("Tình Trạng")]

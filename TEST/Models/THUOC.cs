@@ -12,6 +12,7 @@ namespace TEST.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
 
     public partial class THUOC
     {
@@ -27,8 +28,12 @@ namespace TEST.Models
         [DisplayName("Xuất Xứ")]
         public string XUATXU { get; set; }
         [DisplayName("Ngày Sản Xuất")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime NSX { get; set; }
         [DisplayName("Hạn Sử Dụng")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime HSD { get; set; }
         [DisplayName("Đơn Vị Tính")]
         public string DONVITINH { get; set; }

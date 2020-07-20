@@ -26,6 +26,7 @@ namespace TEST.Models
         [DisplayName ("Tên Bệnh Nhân")]
         public string TENBN { get; set; }
         [DisplayName("Ngày Sinh")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime NGAYSINHBN { get; set; }
         [DisplayName("Địa Chỉ")]

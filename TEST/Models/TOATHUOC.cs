@@ -25,6 +25,7 @@ namespace TEST.Models
         public int MATOATHUOC { get; set; }
         public int MAHSBA { get; set; }
         [DisplayName ("Ngày Kê")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime NGAYKE { get; set; }
     

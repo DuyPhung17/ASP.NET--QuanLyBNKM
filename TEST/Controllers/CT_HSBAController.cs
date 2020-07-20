@@ -45,10 +45,22 @@ namespace TEST.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThongKe(String TUNGAY ="", String DENNGAY = "")
-        {
-            var hSBAs = db.CT_HSBA.Where(abc => abc.TINHTRANG.Contains(null));
+        public ActionResult ThongKe(DateTime TUNGAY , DateTime DENNGAY)
+        {   
+            var hSBAs = db.CT_HSBA.Where(abc => abc.NGAYKHAM.CompareTo(TUNGAY)>0 && abc.NGAYKHAM.CompareTo(DENNGAY)<0);
             ViewBag.tongbn = hSBAs.Count();
+            TOATHUOC tt;
+            int tong = 0;
+            foreach (CT_HSBA hs in hSBAs)
+            {
+                tt = db.TOATHUOCs.Find(hs.MAHSBA);
+                var listCTtoathuoc = db.CT_TOATHUOC.Where(m => m.MATOATHUOC == tt.MATOATHUOC);
+                foreach (CT_TOATHUOC ct in listCTtoathuoc)
+                {
+                    tong += ct.THUOC.DONGIATHUOC * ct.SOLUONG;
+                }
+            }
+            ViewBag.tongtien = tong;
             return View(hSBAs.ToList());
         }
 

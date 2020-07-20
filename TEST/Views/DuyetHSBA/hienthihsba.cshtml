@@ -32,9 +32,8 @@
             grid.Column("BENHNHAN.TENBN", "Tên Bệnh Nhân"),
             grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
             grid.Column("BENH.TENBENH", "Căn Bệnh"),
-            grid.Column("DUYET", "Trình Trạng"),
-            grid.Column("Toa Thuốc", format: (item) => Html.ActionLink("Chi Tiết", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
-            grid.Column("Dịch Vụ Dùng", format: (item) => Html.ActionLink("Chi Tiết", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
+            grid.Column("Toa Thuốc", format: (item) => Html.ActionLink("Xem", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
+            grid.Column("Dịch Vụ", format: (item) => Html.ActionLink("Xem", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
             grid.Column("Duyệt", format: (item) => Html.ActionLink("Duyệt", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController")),
             grid.Column("Chức năng", format: @<text>
                         <a href="@Url.Action("Edit",

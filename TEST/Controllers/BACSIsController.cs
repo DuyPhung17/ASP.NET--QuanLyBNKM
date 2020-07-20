@@ -55,8 +55,14 @@ namespace TEST.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MABS,TENBS,NGAYSINHBS,SDTBS,DIACHIBS,CHUYENMON,TRINHDO")] BACSI bACSI)
         {
+            var anhBS = Request.Files["Avatar"];
+            string postedFileName = System.IO.Path.GetFileName(anhBS.FileName);
+            var path = Server.MapPath("/Images/" + postedFileName);
+            anhBS.SaveAs(path);
+
             if (ModelState.IsValid)
             {
+                bACSI.ANHBS = postedFileName;
                 db.BACSIs.Add(bACSI);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -87,6 +93,18 @@ namespace TEST.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "MABS,TENBS,NGAYSINHBS,SDTBS,DIACHIBS,CHUYENMON,TRINHDO")] BACSI bACSI)
         {
+            var anhBS = Request.Files["Avatar"];
+            try
+            {
+                //Lấy thông tin từ input type=file có tên Avatar
+                string postedFileName = System.IO.Path.GetFileName(anhBS.FileName);
+                //Lưu hình đại diện về Server
+                var path = Server.MapPath("/Images/" + postedFileName);
+                anhBS.SaveAs(path);
+            }
+            catch
+            { }
+
             if (ModelState.IsValid)
             {
                 db.Entry(bACSI).State = EntityState.Modified;

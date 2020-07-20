@@ -36,18 +36,18 @@
                 grid.Column("CHUYENMON", "Chuyên Môn"),
                 grid.Column("TRINHDO", "Trình Độ"),
                 grid.Column("Chức năng", format: @<text>
-                        <a href="@Url.Action("Edit",
+            <a href="@Url.Action("Edit",
                         new { id = item.MABS})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
-                        &nbsp;
-                        <a href="@Url.Action("Details",
+            &nbsp;
+            <a href="@Url.Action("Details",
                         new { id = item.MABS})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
-                        &nbsp;
-                        <a href="@Url.Action("Delete",
+            &nbsp;
+            <a href="@Url.Action("Delete",
                         new { id = item.MABS})" class="edit-btn">
-                            <abbr title="Xóa dữ liệu">
-                                <img src="/images/delete.png" height="17" />
-                            </abbr>
-                        </a>
+                <abbr title="Xóa dữ liệu">
+                    <img src="/images/delete.png" height="17" />
+                </abbr>
+            </a>
     </text>)
 
 

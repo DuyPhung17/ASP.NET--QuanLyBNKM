@@ -28,6 +28,7 @@ namespace TEST.Models
         public int MABN { get; set; }
         public int MABENH { get; set; }
         [DisplayName("Ngày Nhập Viện")]
+        [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime NGAYNHAPVIEN { get; set; }
         [DisplayName("Duyệt Khám")]

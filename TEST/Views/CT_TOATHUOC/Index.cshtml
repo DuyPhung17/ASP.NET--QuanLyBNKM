@@ -34,13 +34,13 @@
         grid.Column("SOLUONG", "Số Lượng"),
         grid.Column("LIEUDUNG", "Liều Dùng"),
         grid.Column("Chức năng", format: @<text>
-            <a href="@Url.Action("Edit",
+            <a href="@Url.Action("Index",
                         new { id = item.MATOATHUOC})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
             &nbsp;
-            <a href="@Url.Action("Details",
+            <a href="@Url.Action("Index",
                         new { id = item.MATOATHUOC})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
             &nbsp;
-            <a href="@Url.Action("Delete",
+            <a href="@Url.Action("Index",
                         new { id = item.MATOATHUOC})" class="edit-btn">
                 <abbr title="Xóa dữ liệu">
                     <img src="/images/delete.png" height="17" />
