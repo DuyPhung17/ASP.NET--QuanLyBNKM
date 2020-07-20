@@ -1,12 +1,8 @@
-﻿
+﻿@using TEST.Models
 @{
     ViewBag.Title = "GioiThieu";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
 
-<!DOCTYPE html>
-<html>
-<head>
     <style>
         #bgimg {
             position: absolute;
@@ -23,13 +19,24 @@
             width: 550px;
         }
     </style>
-</head>
-<body>
+    QLBNKMEntities db = new QLBNKMEntities();
+    TAIKHOAN tk;
+}
+
+<p style="font-weight: 700;
+        font-size: 20px;
+        color: #14B3C6;
+        margin-top: 30px;
+        margin-left: -20px;">
+    Trưởng khoa:
+    @{
+        tk = null;
+        if (Session["TaiKhoanAdmin"] != null) { tk = Session["TaiKhoanAdmin"] as TAIKHOAN; }
+        BACSI bs = db.BACSIs.SingleOrDefault(x => x.MABS == tk.MABS);
+        <span>@bs.TENBS</span>
+    }
+</p>
     <img src="~/Images/anhbg2.jpg" id="bgimg" />
     <img src="~/Images/Picture1.png" id="gth" />
 
-
-
-</body>
-</html>
 

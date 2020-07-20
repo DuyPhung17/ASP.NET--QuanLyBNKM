@@ -24,6 +24,34 @@ namespace TEST.Controllers
             return View(cT_HSBAs.ToList());
         }
 
+        public ActionResult ThongKe()
+        {
+            var hSBAs = db.CT_HSBA.Include(h => h.HSBA.BENHNHAN).Include(h => h.BACSI);
+            ViewBag.tongbn = hSBAs.Count();
+            TOATHUOC tt;
+            int tong = 0;
+            foreach (CT_HSBA hs in hSBAs)
+            {
+                tt = db.TOATHUOCs.Find(hs.MAHSBA);
+                var listCTtoathuoc = db.CT_TOATHUOC.Where(m => m.MATOATHUOC == tt.MATOATHUOC);
+                foreach (CT_TOATHUOC ct in listCTtoathuoc)
+                {
+                    tong += ct.THUOC.DONGIATHUOC * ct.SOLUONG;
+                }
+            }
+            ViewBag.tongtien = tong;
+
+            return View(hSBAs.ToList());
+        }
+
+        [HttpPost]
+        public ActionResult ThongKe(String TUNGAY ="", String DENNGAY = "")
+        {
+            var hSBAs = db.CT_HSBA.Where(abc => abc.TINHTRANG.Contains(null));
+            ViewBag.tongbn = hSBAs.Count();
+            return View(hSBAs.ToList());
+        }
+
         // GET: CT_HSBA/Details/5
         public ActionResult Details(int? id)
         {

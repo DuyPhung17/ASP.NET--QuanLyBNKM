@@ -9,7 +9,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="wrapper">
-        <h2 style="text-align:center">SỬA THÔNG TIN</h2>
+        <h3 style="text-align:center">SỬA THÔNG TIN</h3>
         <div class="form">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.MABS)
@@ -49,16 +49,23 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.CHUYENMON, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.CHUYENMON, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.CHUYENMON, "", new { @class = "text-danger" })
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.CHUYENMON, "Khám Nội", new { @checked = "checked" })&nbsp;Khám Nội&nbsp;
+                        @Html.RadioButtonFor(model => model.CHUYENMON, "Khám Ngoại")&nbsp;Khám Ngoại
+                        @Html.ValidationMessageFor(model => model.CHUYENMON, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.TRINHDO, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.TRINHDO, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.TRINHDO, "", new { @class = "text-danger" })
+                    <div class="checkbox">
+                        @Html.RadioButtonFor(model => model.TRINHDO, "Chuyên Khoa I", new { @checked = "checked" }) &nbsp;Chuyên Khoa I
+                        <br/>
+                        <p>@Html.RadioButtonFor(model => model.TRINHDO, "Chuyên Khoa II", new { @checked = "checked" }) &nbsp;Chuyên Khoa II</p>
+                        @Html.ValidationMessageFor(model => model.TRINHDO, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
 
@@ -68,8 +75,8 @@
                 </div>
             </div>
             <div style="text-align:center">
-        @Html.ActionLink("Trở Lại", "Index")
-    </div>
+                @Html.ActionLink("Trở Lại", "Index")
+            </div>
         </div>
     </div>
     

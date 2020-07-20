@@ -25,6 +25,7 @@ CREATE TABLE BACSI
    DIACHIBS             nvarchar(50)	NOT NULL,
    CHUYENMON            nvarchar(50)	not NULL	CHECK(CHUYENMON = N'Khám Nội' OR CHUYENMON = N'Khám Ngoại'),
    TRINHDO				nvarchar(50)	NOT NULL	CHECK(TRINHDO = N'Chuyên Khoa I' OR TRINHDO = N'Chuyên Khoa II'),
+   ANHBS				NVARCHAR(50)	NOT NULL,
 )
 GO
 
@@ -160,18 +161,18 @@ VALUES
 	(N'Võ Hoàng Anh',		'2008-03-02',	N'129 Lê Hồng Phong',	N'Nam',	 NULL,		 'HS4120181847180');
 GO
 
-INSERT dbo.BACSI( TENBS ,NGAYSINHBS ,SDTBS ,DIACHIBS ,CHUYENMON, TRINHDO)
+INSERT dbo.BACSI( TENBS ,NGAYSINHBS ,SDTBS ,DIACHIBS ,CHUYENMON, TRINHDO, ANHBS)
 VALUES  
-	(N'Nguyễn Văn Nam',	'1970-09-03',	'0987654321',	N'17 Bạch Đằng',	N'Khám Nội',	'Chuyên Khoa II'),
-	(N'Nguyễn Thị Vân',	'1980-09-03',	'0987654321',	N'31 Đồng Nai',		N'Khám Ngoại',	'Chuyên Khoa II'),
-	(N'Lê Văn Chiến',	'1973-09-03',	'0987654321',	N'87 Nguyễn Trãi',	N'Khám Ngoại',	'Chuyên Khoa I'),
-	(N'Ngô Quang Khoa',	'1972-09-03',	'0987654321',	N'05 Trịnh Phong',	N'Khám Nội',	'Chuyên Khoa II'),
-	(N'Trần Văn Tính',	'1970-05-03',	'0997654321',	N'14 Đống Đa',		N'Khám Nội',	'Chuyên Khoa I'),
-	(N'Võ Toàn Thắng',	'1969-09-03',	'0987654321',	N'37 Cửu Long',		N'Khám Ngoại',	'Chuyên Khoa II'),
-	(N'Thái Ngọc Hằng',	'1982-09-03',	'0956654321',	N'10 Trịnh Phong',	N'Khám Ngoại',	'Chuyên Khoa I'),
-	(N'Nguyễn Văn Sơn',	'1970-10-03',	'0987654320',	N'10 Trần Phú',		N'Khám Ngoại',	'Chuyên Khoa I'),
-	(N'Lê Như Ý',		'1985-02-08',	'0187654321',	N'9A Nhị Hà',		N'Khám Nội',	'Chuyên Khoa II'),
-	(N'Trần Việt Trinh','1971-09-03',	'0987654321',	N'87 Nguyễn Trãi',	N'Khám Nội',	'Chuyên Khoa I');
+	(N'Nguyễn Văn Nam',	'1970-09-03',	'0987654321',	N'17 Bạch Đằng',	N'Khám Nội',	'Chuyên Khoa II', N'BS01.png'),
+	(N'Nguyễn Thị Vân',	'1980-09-03',	'0987654321',	N'31 Đồng Nai',		N'Khám Ngoại',	'Chuyên Khoa II', N'BS02.png'),
+	(N'Lê Văn Chiến',	'1973-09-03',	'0987654321',	N'87 Nguyễn Trãi',	N'Khám Ngoại',	'Chuyên Khoa I', N'BS03.png'),
+	(N'Ngô Quang Khoa',	'1972-09-03',	'0987654321',	N'05 Trịnh Phong',	N'Khám Nội',	'Chuyên Khoa II', N'BS04.png'),
+	(N'Trần Văn Tính',	'1970-05-03',	'0997654321',	N'14 Đống Đa',		N'Khám Nội',	'Chuyên Khoa I', N'BS05.png'),
+	(N'Võ Toàn Thắng',	'1969-09-03',	'0987654321',	N'37 Cửu Long',		N'Khám Ngoại',	'Chuyên Khoa II', N'BS06.png'),
+	(N'Thái Ngọc Hằng',	'1988-09-03',	'0956654321',	N'10 Trịnh Phong',	N'Khám Ngoại',	'Chuyên Khoa I', N'BS07.png'),
+	(N'Nguyễn Văn Sơn',	'1970-10-03',	'0987654320',	N'10 Trần Phú',		N'Khám Ngoại',	'Chuyên Khoa I', N'BS08.png'),
+	(N'Lê Như Ý',		'1985-02-08',	'0187654321',	N'9A Nhị Hà',		N'Khám Nội',	'Chuyên Khoa II', N'BS09.png'),
+	(N'Trần Việt Sinh','1971-09-03',	'0987654321',	N'87 Nguyễn Trãi',	N'Khám Nội',	'Chuyên Khoa I', N'BS10.png');
 GO        
 
 INSERT dbo.THUOC( TENTHUOC ,XUATXU ,NSX ,HSD ,DONVITINH ,DONGIATHUOC)
@@ -364,6 +365,5 @@ GO
 INSERT dbo.TAIKHOAN(ADMIN, MABS,  TENDN, MATKHAU )
 VALUES  
 	(1,1, 'duy' ,'123'),
-	(0,2, 'huy'	,'123');
+	(0,3, 'huy'	,'123');
 GO
-

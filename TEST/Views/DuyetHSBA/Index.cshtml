@@ -1,41 +1,42 @@
-﻿@using TEST.Models
-@model IEnumerable<HSBA>
+﻿
+@model IEnumerable<TEST.Models.HSBA>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-    String tendn = ViewBag.tenDN;
-    QLBNKMEntities db = new QLBNKMEntities();
-    TAIKHOAN tk = db.TAIKHOANs.SingleOrDefault(m => m.TENDN.Equals(tendn));
-    BACSI bs = db.BACSIs.SingleOrDefault(m => m.MABS == tk.MABS);
-    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 5);
-}
+
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 6);
+
+    <style>
+        p a {
+            text-decoration: none;
+            position: absolute;
+            left: 480px ;
+            border: 1px;
+            color: #fff;
+            background: #092B44;
+            border-radius: 5px;
+            height: 30px;
+            width: 110px;
+            display: block;
+            padding-top: 10px;
+            text-align: center;
+        }
+            p a:hover {
+                background-color: #14B3C6;
+            }
+    </style>
+
+    }
+
 
     <div class="wrapper">
-        <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+        <h2 style="text-align:center">Duyệt Danh Sách Khám</h2>
+        <br />
         <div class="form">
-            <div class="form-group">
-                <label>@bs.TENBS</label>
-
-            </div>
-            <div class="form-group">
-                <label>@bs.NGAYSINHBS</label>
-
-            </div>
-            <div class="form-group">
-                <label>@bs.SDTBS</label>
-            </div>
-            <div class="form-group">
-                <label>@bs.TRINHDO</label>
-            </div>
-            <div class="form-group">
-                <label>@bs.CHUYENMON</label>
-            </div>
-            <div class="form-group">
-                <label>Tổng tiền: @ViewBag.tongtien</label>
-            </div>
+            
             <div style="text-align:center">
-                @Html.ActionLink("Xem danh sách hồ sơ", "hienthihsba", "DuyetHSBA")
+                @Html.ActionLink("Xem danh sách HSBA", "hienthihsba", "DuyetHSBA")
             </div>
         </div>
 
@@ -54,24 +55,17 @@
                 grid.Column("BENHNHAN.TENBN", "Tên Bệnh Nhân"),
                 grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
                 grid.Column("BENH.TENBENH", "Căn Bệnh"),
-                grid.Column("Toa Thuốc", format: (item) => Html.ActionLink("Chi Tiết", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
-                grid.Column("Dịch Vụ Dùng", format: (item) => Html.ActionLink("Chi Tiết", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
-                grid.Column("Hủy", format: (item) => Html.ActionLink("Hủy", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController")),
-                grid.Column("Chức năng", format: @<text>
-                            <a href="@Url.Action("Edit",
-                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
-                            &nbsp;
-                            <a href="@Url.Action("Index","CT_HSBA",
-                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
-                            &nbsp;
-                            <a href="@Url.Action("Delete",
-                        new { id = item.MAHSBA})" class="edit-btn">
-                                <abbr title="Xóa dữ liệu">
-                                    <img src="/images/delete.png" height="17" />
-                                </abbr>
-                            </a>
-    </text>)
+           
+
+grid.Column("Hủy", format: (item) => Html.ActionLink("Hủy", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController"))
+
 
 
 ))
     </div>
+    
+    
+    <p>
+        @Html.ActionLink("Duyệt Khám", "Index")
+    </p>
+

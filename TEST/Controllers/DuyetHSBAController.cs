@@ -37,7 +37,9 @@ namespace TEST.Controllers
                     }
                 }
             ViewBag.tongtien = tong;
-            ViewBag.tenDN = Session["tenDN"].ToString();
+            ViewBag.tenDN = Session["TENDN"].ToString();
+
+
             return View(lisths.ToList());
         }
         public ActionResult hienthihsba()

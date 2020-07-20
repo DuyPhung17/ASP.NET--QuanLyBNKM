@@ -12,7 +12,7 @@ namespace TEST.Controllers
     public class DangNhapController : Controller
     {
         private QLBNKMEntities db = new QLBNKMEntities();
-        public int CheckUser(String TENDN, String MATKHAU)
+        /*public int CheckUser(String TENDN, String MATKHAU)
         {
             var test = db.TAIKHOANs.Where(x => x.TENDN == TENDN && x.MATKHAU == MATKHAU).ToList();
             var kq = test.Where(x => x.ADMIN == true).ToList();
@@ -20,9 +20,9 @@ namespace TEST.Controllers
             {
                 Session["TENDN"] = kq.First().TENDN;
                 return 2;
-                
+
             }
-            else if(test.Count()>0)
+            else if (test.Count() > 0)
             {
                 Session["TENDN"] = test.First().TENDN;
                 return 1;
@@ -32,7 +32,7 @@ namespace TEST.Controllers
                 Session["TENDN"] = null;
                 return 0;
             }
-        }
+        }*/
         // GET: DangNhap
         public ActionResult DangNhap()
         {
@@ -41,38 +41,56 @@ namespace TEST.Controllers
         [HttpPost]
         public ActionResult DangNhap(TAIKHOAN tk)
         {
-            if (ModelState.IsValid)
+            TAIKHOAN tk1 = db.TAIKHOANs.SingleOrDefault(x => x.TENDN == tk.TENDN && x.MATKHAU == tk.MATKHAU && x.ADMIN == true);
+            TAIKHOAN tk2 = db.TAIKHOANs.SingleOrDefault(x => x.TENDN == tk.TENDN && x.MATKHAU == tk.MATKHAU && x.ADMIN == false);
+
+            Session["TaiKhoanNotAdmin"] = null;
+            Session["TaiKhoanAdmin"] = null;
+
+            if (tk1 != null)
             {
-                if (CheckUser(tk.TENDN, tk.MATKHAU) == 2)
-                {
-                    FormsAuthentication.SetAuthCookie(tk.TENDN, true);
-                    return RedirectToAction("GioiThieu");
-                }
-                else if (CheckUser(tk.TENDN, tk.MATKHAU) == 1)
-                {
-                    FormsAuthentication.SetAuthCookie(tk.TENDN, true);
-                    return RedirectToAction("GioiThieuBS", new { id = tk.MABS});
-                }
-                else
-                    return Content("Sai tài khoản!");
+                Session["TaiKhoanAdmin"] = tk1;
             }
-            return View(tk);
+
+            if (tk2 != null)
+            {
+                Session["TaiKhoanNotAdmin"] = tk2;
+            }
+
+            if(Session["TaiKhoanAdmin"] != null)
+            {
+                Session["TENDN"] = tk1.TENDN;
+                return RedirectToAction("GioiThieu");
+            }
+
+            if (Session["TaiKhoanNotAdmin"] != null)
+            {
+                Session["TENDN"] = tk2.TENDN;
+                return RedirectToAction("GioiThieuBS", new { id = tk.MABS });
+            }
+
+            return RedirectToAction("DangNhap", "DangNhap");
         }
         public ActionResult GioiThieu()
-        {   
-            if(Session["TENDN"] == null)
-            {
-                return RedirectToAction("DangNhap");
-            }
+        {
+            if (Session["TaiKhoanAdmin"] == null)
+                return RedirectToAction("DangNhap", "DangNhap");
+
             return View();
         }
         public ActionResult GioiThieuBS()
         {
-            if (Session["TENDN"] == null)
-            {
-                return RedirectToAction("DangNhap");
-            }
+            if (Session["TaiKhoanNotAdmin"] == null)
+                return RedirectToAction("DangNhap", "DangNhap");
+          
             return View();
+        }
+
+        public ActionResult DangXuat()
+        {
+            Session["TaiKhoanNotAdmin"] = null;
+            Session["TaiKhoanAdmin"] = null;
+            return RedirectToAction("DangNhap","DangNhap");
         }
     }
 }

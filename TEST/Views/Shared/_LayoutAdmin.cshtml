@@ -17,7 +17,7 @@
     </div>
     <div class="menubar">
         <ul>
-            <li><a href="../GioiThieu/GioiThieu">Giới Thiệu</a></li>
+            <li><a href="../DangNhap/GioiThieu">Giới thiệu</a></li>
             <li>
                 <a href="#">Danh Mục</a>
                 <div class="submenu">
@@ -31,10 +31,10 @@
                     </ul>
                 </div>
             </li>
-            <li><a href="@Url.Action("Index","DuyetHSBA")">Danh Sách Khám</a></li>
-            <li><a href="../HSBAs/TraCuu">Tra Cứu</a></li>
-            <li><a href="#">Thống Kê</a></li>
-            <li class="login"><a href="../DangNhap/DangNhap">Đăng Xuất</a></li>
+            <li><a href="@Url.Action("Index","DuyetHSBA")">Duyệt Khám</a></li>
+            <li><a href="~/HSBAs/TraCuu">Tra Cứu</a></li>
+            <li><a href="~/CT_HSBA/ThongKe">Thống Kê</a></li>
+            <li class="login">@Html.ActionLink("Đăng xuất","DangXuat","DangNhap")</li>
         </ul>
     </div>
     <div class="content">
