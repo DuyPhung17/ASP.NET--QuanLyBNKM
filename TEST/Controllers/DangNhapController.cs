@@ -48,7 +48,7 @@ namespace TEST.Controllers
                 Session["TENDN"] = tk2.TENDN;
                 return RedirectToAction("GioiThieuBS", new { id = tk.MABS });
             }
-            return RedirectToAction("DangNhap", "DangNhap", ViewBag.tb="a");
+            return RedirectToAction("DangNhap", "DangNhap");
         }
         public ActionResult GioiThieu()
         {

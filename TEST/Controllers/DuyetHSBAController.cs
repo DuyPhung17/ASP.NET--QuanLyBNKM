@@ -25,7 +25,7 @@ namespace TEST.Controllers
                 db.SaveChanges();
                 
             }
-            var lisths = db.HSBAs.Where(m => m.DUYET == true);
+            var lisths = db.CT_HSBA.Where(m => m.HSBA.DUYET == true);
             return View(lisths.ToList());
         }
         public ActionResult hienthihsba()

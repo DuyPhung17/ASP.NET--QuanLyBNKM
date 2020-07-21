@@ -1,11 +1,11 @@
 ﻿
-@model IEnumerable<TEST.Models.HSBA>
+@model IEnumerable<TEST.Models.CT_HSBA>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 
-    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 6);
+    var grid = new WebGrid(Model, canPage: true, rowsPerPage: 5);
 
     <style>
         p a {
@@ -25,6 +25,15 @@
             p a:hover {
                 background-color: #14B3C6;
             }
+        #ngay {
+
+            outline: none;
+            border: 1px solid #d5dbd9;
+            font-size: 15px;
+            padding: 8px 8px;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
     </style>
 
     }
@@ -33,8 +42,10 @@
     <div class="wrapper">
         <h2 style="text-align:center">Duyệt Danh Sách Khám</h2>
         <br />
-        <div class="form">
-            
+        <div class="form" style="text-align:center;">
+            Chọn Ngày Khám: &nbsp;
+            <input type="date" name="ngayKham" id="ngay"/>
+            <br /><br />
             <div style="text-align:center">
                 @Html.ActionLink("Xem danh sách HSBA", "hienthihsba", "DuyetHSBA")
             </div>
@@ -52,19 +63,13 @@
             columns:
                 grid.Columns(
                 grid.Column(columnName: "STT", header: "STT", format: item => item.WebGrid.Rows.IndexOf(item) + 1 + Math.Round(Convert.ToDouble(grid.TotalRowCount / grid.PageCount) / grid.RowsPerPage) * grid.RowsPerPage * grid.PageIndex),
-                grid.Column("BENHNHAN.TENBN", "Tên Bệnh Nhân"),
-                grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
-                grid.Column("BENH.TENBENH", "Căn Bệnh"),
-           
-
-grid.Column("Hủy", format: (item) => Html.ActionLink("Hủy", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController"))
-
-
-
+                grid.Column("HSBA.BENHNHAN.TENBN", "Tên Bệnh Nhân"),
+                grid.Column("HSBA.NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.HSBA.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
+                grid.Column("HSBA.BENH.TENBENH", "Căn Bệnh"),
+                grid.Column("BACSI.TENBS", "Bác Sĩ Khám"),
+                grid.Column("Hủy", format: (item) => Html.ActionLink("Hủy", "Index", "DuyetHSBA", new { id = item.MAHSBA }, "DuyetHSBAController"))
 ))
-    </div>
-    
-    
+    </div>    
     <p>
         @Html.ActionLink("Duyệt Khám", "Index", "DuyetHSBA",new { id = 0 }, "DuyetHSBAController" )
     </p>
