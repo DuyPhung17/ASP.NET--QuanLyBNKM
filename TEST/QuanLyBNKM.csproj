@@ -145,6 +145,7 @@
     <Compile Include="Controllers\DuyetHSBAController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HSBAsController.cs" />
+    <Compile Include="Controllers\TAIKHOANsController.cs" />
     <Compile Include="Controllers\THUOCsController.cs" />
     <Compile Include="Controllers\TOATHUOCsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -335,6 +336,11 @@
     <Content Include="Views\DuyetHSBA\Index.cshtml" />
     <Content Include="Views\DuyetHSBA\hienthihsba.cshtml" />
     <Content Include="Views\CT_HSBA\ThongKe.cshtml" />
+    <Content Include="Views\TAIKHOANs\Create.cshtml" />
+    <Content Include="Views\TAIKHOANs\Delete.cshtml" />
+    <Content Include="Views\TAIKHOANs\Details.cshtml" />
+    <Content Include="Views\TAIKHOANs\Edit.cshtml" />
+    <Content Include="Views\TAIKHOANs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,32 @@
+﻿@model TEST.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="wrapper">
+    <h2 style="text-align:center">THÔNG TIN CHI TIẾT</h2>
+    <div class="form">
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.BACSI.TENBS)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.BACSI.TENBS)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.ADMIN)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.ADMIN)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.TENDN)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.TENDN)</p>
+        </div>
+        <div class="form-group">
+            <label>@Html.DisplayNameFor(model => model.MATKHAU)</label>
+            <p class="form-control">@Html.DisplayFor(model => model.MATKHAU)</p>
+        </div>
+    
+        <div style="text-align:center">
+            @Html.ActionLink("Trở lại", "Index")
+        </div>
+    </div>
+</div>

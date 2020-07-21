@@ -115,7 +115,16 @@
         </form>
 
     </div>
-
+    @if (Session["TaiKhoanNotAdmin"] == null && Session["TaiKhoanAdmin"] == null)
+    {
+        <script>
+            $(document).ready(function () {
+                $('.btnDangNhap').click(function () {
+                    alert("Sai tài khoản");
+                });
+            });
+        </script>
+    }
 </body>
 </html>
 

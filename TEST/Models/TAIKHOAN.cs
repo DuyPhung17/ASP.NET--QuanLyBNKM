@@ -18,7 +18,7 @@ namespace TEST.Models
         public int MATK { get; set; }
         [DisplayName ("Mã Bác Sĩ")]
         public int MABS { get; set; }
-        [DisplayName("Chức Vụ")]
+        [DisplayName("Trưởng Khoa")]
         public bool ADMIN { get; set; }
         [DisplayName("Tên Đăng Nhập")]
         public string TENDN { get; set; }
