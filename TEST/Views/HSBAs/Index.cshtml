@@ -32,7 +32,6 @@
             grid.Column("BENHNHAN.TENBN", "Tên Bệnh Nhân"),
             grid.Column("NGAYNHAPVIEN", "Ngày Nhập Viện", format:@<text> @item.NGAYNHAPVIEN.ToString("dd/MM/yyyy")</text>),
             grid.Column("BENH.TENBENH", "Căn Bệnh"),
-            grid.Column("DUYET", "Duyệt Khám", format: (@item) => @item.DUYET == true ? "Rồi" : "Chưa"),
             grid.Column("Toa Thuốc",format: (item) => Html.ActionLink("Xem", "Index", "TOATHUOCs", new { id = item.MAHSBA }, "TOATHUOCsController")),
             grid.Column("Dịch Vụ",format: (item) => Html.ActionLink("Xem", "Index", "BANKEDICHVUs", new { id = item.MAHSBA }, "BANKEDICHVUsController")),
             grid.Column("Chức năng", format: @<text>
@@ -40,7 +39,7 @@
                         new { id = item.MAHSBA})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
             &nbsp;
             <a href="@Url.Action("Index","CT_HSBA",
-                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
+                        new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem Quá Trình Khám"><img src="/images/detail.png" height="20" /></abbr></a>
             &nbsp;
             <a href="@Url.Action("Delete",
                         new { id = item.MAHSBA})" class="edit-btn">
