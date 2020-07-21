@@ -10,7 +10,7 @@
 <div class="heading">
     <h2>THÔNG TIN TOA THUỐC</h2>
     <form class="form" method="post">
-        <input type="text" name="tenBN" placeholder="Nhập tên loại thuốc" class="form-control" />
+        <input type="text" name="thuoc" placeholder="Nhập tên loại thuốc" class="form-control" />
         <input type="submit" value="Tìm Kiếm" class="btn" />
     </form>
     <p>
@@ -33,6 +33,7 @@
         grid.Column("THUOC.TENTHUOC", "Tên Thuốc"),
         grid.Column("SOLUONG", "Số Lượng"),
         grid.Column("LIEUDUNG", "Liều Dùng"),
+        grid.Column("THUOC.DONGIATHUOC", "Đơn Giá"),
         grid.Column("Chức năng", format: @<text>
             <a href="@Url.Action("Index",
                         new { id = item.MATOATHUOC})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>

@@ -23,6 +23,15 @@ namespace TEST.Controllers
             ViewBag.NGAYKE = db.TOATHUOCs.Find(id).NGAYKE.ToString("dd/MM/yyyy");
             return View(cT_TOATHUOC.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(int? id,String thuoc)
+        {
+            var cT_TOATHUOC = db.CT_TOATHUOC.Where(abc => abc.THUOC.TENTHUOC.Contains(thuoc));
+            int MABN = db.HSBAs.Find(id).MABN;
+            ViewBag.TENBN = db.BENHNHANs.Find(MABN).TENBN;
+            ViewBag.NGAYKE = db.TOATHUOCs.Find(id).NGAYKE.ToString("dd/MM/yyyy");
+            return View(cT_TOATHUOC.ToList());
+        }
 
         // GET: CT_TOATHUOC/Details/5
         public ActionResult Details(int? id)

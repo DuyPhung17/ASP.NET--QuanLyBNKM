@@ -10,7 +10,7 @@
 <div class="heading">
     <h2>BẢNG KÊ DỊCH VỤ</h2>
     <form class="form" method="post">
-        <input type="text" name="tenBN" placeholder="Nhập tên bệnh nhân" class="form-control" />
+        <input type="text" name="ngayKe" placeholder="Nhập ngày kê" class="form-control" />
         <input type="submit" value="Tìm Kiếm" class="btn" />
     </form>
     <p>
@@ -35,7 +35,7 @@ grid.Column("Chức năng", format: @<text>
                     <a href="@Url.Action("Edit",
                         new { id = item.MAHSBA})" class="edit-btn"><abbr title="Cập nhật dữ liệu"><img src="/images/edit.png" height="20" /></abbr></a>
                     &nbsp;
-                    <a href="@Url.Action("Details",
+                    <a href="@Url.Action("Index",
                         new { id = item.MAHSBA})" class="edit-btn"><abbr title="Xem chi tiết"><img src="/images/detail.png" height="20" /></abbr></a>
                     &nbsp;
                     <a href="@Url.Action("Delete",

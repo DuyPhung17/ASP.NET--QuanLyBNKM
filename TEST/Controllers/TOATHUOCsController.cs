@@ -22,6 +22,14 @@ namespace TEST.Controllers
             ViewBag.TENBN = db.BENHNHANs.Find(MABN).TENBN;
             return View(tOATHUOCs.ToList());
         }
+        [HttpPost]
+        public ActionResult Index(DateTime ngayKe, int? id)
+        {
+            var tOATHUOCs = db.TOATHUOCs.Where(abc => abc.NGAYKE.CompareTo(ngayKe) == 0);
+            int MABN = db.HSBAs.Find(id).MABN;
+            ViewBag.TENBN = db.BENHNHANs.Find(MABN).TENBN;
+            return View(tOATHUOCs.ToList());
+        }
 
         // GET: TOATHUOCs/Details/5
         public ActionResult Details(int? id)
