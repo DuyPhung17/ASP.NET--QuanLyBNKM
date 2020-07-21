@@ -109,20 +109,18 @@
             <input type="text" name="TENDN" placeholder="Nhập tên tài khoản" required>
             <p>Mật khẩu</p>
             <input type="password" name="MATKHAU" placeholder="Nhập mật khẩu" required>
-            <input type="submit" name="login" value="Đăng Nhập" class="btnDangNhap">
+            <input type="submit" name="login" value="Đăng Nhập" class="btnDangNhap" onclick="function">
             <a href="#">Quên mật khẩu ?</a><br>
             <a href="#">Liên hệ Trưởng khoa để cấp tài khoản</a>
         </form>
 
     </div>
-    @if (Session["TaiKhoanNotAdmin"] == null && Session["TaiKhoanAdmin"] == null)
+    @if (Session["TaiKhoanAdmin"] == null && Session["TaiKhoanNotAdmin"] == null)
     {
-        <script>
-            $(document).ready(function () {
-                $('.btnDangNhap').click(function () {
-                    alert("Sai tài khoản");
-                });
-            });
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("Hãy nhập đúng tài khoản và không được để trống !");
+            };
         </script>
     }
 </body>

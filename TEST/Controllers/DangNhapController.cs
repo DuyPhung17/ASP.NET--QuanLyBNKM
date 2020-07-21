@@ -12,27 +12,6 @@ namespace TEST.Controllers
     public class DangNhapController : Controller
     {
         private QLBNKMEntities db = new QLBNKMEntities();
-        /*public int CheckUser(String TENDN, String MATKHAU)
-        {
-            var test = db.TAIKHOANs.Where(x => x.TENDN == TENDN && x.MATKHAU == MATKHAU).ToList();
-            var kq = test.Where(x => x.ADMIN == true).ToList();
-            if (kq.Count() > 0)
-            {
-                Session["TENDN"] = kq.First().TENDN;
-                return 2;
-
-            }
-            else if (test.Count() > 0)
-            {
-                Session["TENDN"] = test.First().TENDN;
-                return 1;
-            }
-            else
-            {
-                Session["TENDN"] = null;
-                return 0;
-            }
-        }*/
         // GET: DangNhap
         public ActionResult DangNhap()
         {
@@ -61,6 +40,7 @@ namespace TEST.Controllers
             {
                 Session["TENDN"] = tk1.TENDN;
                 return RedirectToAction("GioiThieu");
+
             }
 
             if (Session["TaiKhoanNotAdmin"] != null)
@@ -68,8 +48,7 @@ namespace TEST.Controllers
                 Session["TENDN"] = tk2.TENDN;
                 return RedirectToAction("GioiThieuBS", new { id = tk.MABS });
             }
-
-            return RedirectToAction("DangNhap", "DangNhap");
+            return RedirectToAction("DangNhap", "DangNhap", ViewBag.tb="a");
         }
         public ActionResult GioiThieu()
         {
