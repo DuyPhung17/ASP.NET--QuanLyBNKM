@@ -43,6 +43,19 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInTheProject</FilesToIncludeForPublish>
+    <LegacyPublishPropertiesPageEnabled>true</LegacyPublishPropertiesPageEnabled>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="QLBNKMEntities-Deployment" Order="1">
+          <Destination Path="workstation id=QuanLyBNKM.mssql.somee.com%3bpacket size=4096%3buser id=duyphung_SQLLogin_1%3bpwd=wm32u32e96%3bdata source=QuanLyBNKM.mssql.somee.com%3bpersist security info=False%3binitial catalog=QuanLyBNKM" />
+          <Object Type="DbFullSql" Enabled="True">
+            <PreSource Path="Data Source=duyphung%3bInitial Catalog=QuanLyBNKM%3bIntegrated Security=True%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Release\AutoScripts\QLBNKMEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">

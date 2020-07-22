@@ -33,15 +33,28 @@ namespace TEST.Controllers
         }
 
         [HttpPost]
-        public ActionResult TraCuu(DateTime NGAYNHAPVIEN, String TENBN = "", String GIOITINH = "", String DIACHIBN = "", String BHYT = "", String CANBENH = "")
+        public ActionResult TraCuu(String NGAYNHAPVIEN, String TENBN = "", String GIOITINH = "", String DIACHIBN = "", String BHYT = "", String CANBENH = "")
         {
-            var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(TENBN)
-                                    && abc.BENHNHAN.GIOITINH.Contains(GIOITINH)
-                                    && abc.BENHNHAN.DIACHIBN.Contains(DIACHIBN)
-                                    && abc.BENHNHAN.BHYT.Contains(BHYT)
-                                    && abc.NGAYNHAPVIEN.CompareTo(NGAYNHAPVIEN)==0
-                                    && abc.BENH.TENBENH.Contains(CANBENH));
-            return View(hSBAs.ToList());
+            if (NGAYNHAPVIEN.Equals(""))
+            {
+               var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(TENBN)
+                                   && abc.BENHNHAN.GIOITINH.Contains(GIOITINH)
+                                   && abc.BENHNHAN.DIACHIBN.Contains(DIACHIBN)
+                                   && abc.BENHNHAN.BHYT.Contains(BHYT)
+                                   && abc.BENH.TENBENH.Contains(CANBENH));
+                return View(hSBAs.ToList());
+            }
+            else
+            {
+               var hSBAs = db.HSBAs.Where(abc => abc.BENHNHAN.TENBN.Contains(TENBN)
+                                   && abc.BENHNHAN.GIOITINH.Contains(GIOITINH)
+                                   && abc.BENHNHAN.DIACHIBN.Contains(DIACHIBN)
+                                   && abc.BENHNHAN.BHYT.Contains(BHYT)
+                                   && (abc.NGAYNHAPVIEN.ToString()).Equals(NGAYNHAPVIEN)
+                                   && abc.BENH.TENBENH.Contains(CANBENH));
+                return View(hSBAs.ToList());
+            }
+          
         }
 
         // GET: HSBAs/Details/5

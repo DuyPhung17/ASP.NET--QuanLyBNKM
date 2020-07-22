@@ -5,6 +5,16 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
     var grid = new WebGrid(Model, canPage: true, defaultSort: "TENBS", rowsPerPage: 8);
     @Scripts.Render("~/Scripts/jquery-1.6.2.min.js")
+    <style>
+        #anh {
+            width: 60px;
+            height: 60px;
+        }
+        .footer{
+            top:930px;
+        }
+    </style>
+
 }
 
     <div class="heading">
@@ -33,6 +43,7 @@
                 grid.Column("NGAYSINHBS", "Ngày Sinh", format:@<text> @item.NGAYSINHBS.ToString("dd/MM/yyyy")</text>),
                 grid.Column("SDTBS", "SĐT"),
                 grid.Column("DIACHIBS", "Địa Chỉ"),
+                grid.Column("Ảnh", format: p => @Html.Raw("<img id="+"anh"+" src=\"../Images/" + p.ANHBS + "\">")),
                 grid.Column("CHUYENMON", "Chuyên Môn"),
                 grid.Column("TRINHDO", "Trình Độ"),
                 grid.Column("Chức năng", format: @<text>
@@ -49,7 +60,6 @@
                 </abbr>
             </a>
     </text>)
-
 
 ))
     </div>
